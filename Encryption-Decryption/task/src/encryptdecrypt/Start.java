@@ -6,7 +6,34 @@ import static encryptdecrypt.Decrypt.*;
 import static encryptdecrypt.Encrypt.*;
 
 public class Start {
+    static void start(String opt, String keyS, String input) {
+        try {
+            Operation operation = Operation.valueOf(opt.toUpperCase());
+            int key = 0;
+            try {
+                key = Integer.parseInt(keyS);
+            } catch (IllegalArgumentException e) {
+                System.out.println("enter a number");
+            }
+            switch (operation) {
+                case ENC:
+                    allKeyEncrypt(input, key);
+                    break;
+                case DEC:
+                    allKeyDecrypt(input, key);
+                    break;
+                default:
+                    break;
+            }
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("enter a valid operation");
+        }
+
+    }
+    //standard input
     static void start() {
+
         Scanner scanner = new Scanner(System.in);
 
         String opt = scanner.nextLine().trim().toUpperCase();

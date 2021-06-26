@@ -82,6 +82,158 @@ files:
         }
     }
   learner_created: false
+- name: src/encryptdecrypt/Encrypt.java
+  visible: true
+  text: |+
+    package encryptdecrypt;
+
+    import java.util.Scanner;
+
+    public class Encrypt {
+        static Scanner scanner;
+
+        static {
+            scanner = new Scanner(System.in);
+        }
+
+        static void simpleEncrypt(){
+            String s = "we found a treasure!";
+            StringBuilder sb = new StringBuilder();
+            for (int i=0; i<s.length(); i++){
+                char c = s.charAt(i);
+                char newChar = c;
+                if (c>=65 && c <=90){
+                    int n = 90 - c;
+                    if (n<13){
+                        newChar =(char) (90 + n);
+                    }
+                    else newChar = (char) (65 - (25-n));
+                }
+                else if (c>=97 && c<=122){
+                    int n = 122 - c;
+                    if (n<13){
+                        newChar =(char) (97 + n);
+                    }
+                    else newChar = (char) (122 - (25-n));
+                }
+                sb.append(newChar);
+            }
+            System.out.println(sb);
+        }
+
+        static void letterKeyEncrypt(String message, int key){
+            StringBuilder sb = new StringBuilder();
+            for (int i=0; i<message.length(); i++){
+                char c = message.charAt(i);
+                char newChar = c;
+                if (c>=65 && c <=90){
+                    if (c + key < 90){
+                        newChar = (char) (c + key);
+                    }else{
+                        key -= (90 - c);
+                        newChar = (char) (64 + key);
+                    }
+                }
+                else if (c>=97 && c<=122){
+                    if (c + key < 122){
+                        newChar = (char) (c + key);
+                    }else{
+                        int  tmpKey = key - (122 - c);
+                        newChar = (char) (96 + tmpKey);
+                    }
+                }
+                sb.append(newChar);
+            }
+            System.out.println(sb);
+        }
+
+        static void allKeyEncrypt(String message , int key){
+            StringBuilder sb = new StringBuilder();
+            for (int i=0; i<message.length(); i++){
+                char c = message.charAt(i);
+                char newChar = (char) (c + key);
+                sb.append(newChar);
+            }
+            System.out.println(sb);
+        }
+
+    }
+
+  learner_created: true
+- name: src/encryptdecrypt/Decrypt.java
+  visible: true
+  text: |
+    package encryptdecrypt;
+
+    public class Decrypt {
+        static void allKeyDecrypt(String cyphertext, int key){
+            StringBuilder sb = new StringBuilder();
+            for (int i=0; i<cyphertext.length(); i++){
+                char c = cyphertext.charAt(i);
+                char newChar = (char) (c - key);
+                sb.append(newChar);
+            }
+            System.out.println(sb);
+        }
+    }
+  learner_created: true
+- name: src/encryptdecrypt/Operation.java
+  visible: true
+  text: |
+    package encryptdecrypt;
+
+    public enum Operation {
+        ENC,
+        DEC;
+    }
+  learner_created: true
+- name: src/encryptdecrypt/Start.java
+  visible: true
+  text: |
+    package encryptdecrypt;
+
+    import java.util.Scanner;
+
+    import static encryptdecrypt.Decrypt.*;
+    import static encryptdecrypt.Encrypt.*;
+
+    public class Start {
+        static void start() {
+            Scanner scanner = new Scanner(System.in);
+
+            String opt = scanner.nextLine().trim().toUpperCase();
+
+            try {
+                Operation operation = Operation.valueOf(opt);
+                String input = scanner.nextLine().trim();
+                String keyS = scanner.nextLine().trim();
+                int key = 0;
+                try {
+                    key = Integer.parseInt(keyS);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("enter a number");
+                }
+                switch (operation) {
+                    case ENC:
+                        allKeyEncrypt(input, key);
+                        break;
+                    case DEC:
+                        allKeyDecrypt(input, key);
+                        break;
+                    default:
+                        break;
+                }
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("enter a valid operation");
+            }
+
+        }
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/46/stages/248/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sat, 26 Jun 2021 18:44:38 UTC
 record: -1
