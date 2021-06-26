@@ -34,10 +34,10 @@ public class Encrypt {
         System.out.println(sb);
     }
 
-    static void keyEncrypt(String s ,int key){
+    static void letterKeyEncrypt(String message, int key){
         StringBuilder sb = new StringBuilder();
-        for (int i=0; i<s.length(); i++){
-            char c = s.charAt(i);
+        for (int i=0; i<message.length(); i++){
+            char c = message.charAt(i);
             char newChar = c;
             if (c>=65 && c <=90){
                 if (c + key < 90){
@@ -55,6 +55,16 @@ public class Encrypt {
                     newChar = (char) (96 + tmpKey);
                 }
             }
+            sb.append(newChar);
+        }
+        System.out.println(sb);
+    }
+
+    static void allKeyEncrypt(String message , int key){
+        StringBuilder sb = new StringBuilder();
+        for (int i=0; i<message.length(); i++){
+            char c = message.charAt(i);
+            char newChar = (char) (c + key);
             sb.append(newChar);
         }
         System.out.println(sb);
