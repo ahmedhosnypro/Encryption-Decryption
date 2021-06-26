@@ -10,5 +10,8 @@ files:
     \ {\n        return this.item;\n    }\n}"
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/2603#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Fri, 25 Jun 2021 19:45:34 UTC
 record: -1

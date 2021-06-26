@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * Class to work with
  */
@@ -5,6 +8,12 @@ class Multiplicator {
 
 	public static <T extends Copy<T>> Folder<T>[] multiply(Folder<T> folder, int arraySize) {
 		// Method to implement
+        Folder<T>[] fol = new Folder[arraySize];
+        for (int i=0; i<arraySize; i++){
+        fol[i] = new Folder<>();
+        fol[i].put(folder.get().copy());
+        }
+        return fol;
 	}
 
 }
