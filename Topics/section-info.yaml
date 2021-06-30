@@ -15,3 +15,6 @@ content:
 - Type Bounds
 - Reification
 - Switch statement
+- Encapsulating object creation
+- Factory method
+- Template method
