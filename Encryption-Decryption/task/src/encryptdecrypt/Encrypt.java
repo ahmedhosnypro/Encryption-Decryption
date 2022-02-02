@@ -37,10 +37,9 @@ class Shift extends Encrypt {
             } else if (c >= 97 && c <= 122) {
                 if (c + key < 123) {
                     newChar = (char) (c + key);
-                }else if (c + (key % 26) < 123){
+                } else if (c + (key % 26) < 123) {
                     newChar = (char) (c + (key % 26));
-                }
-                else {
+                } else {
                     int tmpKey = (c + (key % 26)) % 122;
                     newChar = (char) (96 + tmpKey);
                 }
@@ -102,4 +101,3 @@ class simpleEncrypt extends Encrypt {
         return sb.toString();
     }
 }
-

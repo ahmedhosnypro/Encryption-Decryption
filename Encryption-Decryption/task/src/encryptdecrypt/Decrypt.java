@@ -23,8 +23,8 @@ class DeShift extends Decrypt {
     @Override
     String decrypt() {
         StringBuilder sb = new StringBuilder();
-        if (key==12)
-            key+=2;
+        if (key == 12)
+            key += 2;
         for (int i = 0; i < ciphertext.length(); i++) {
             char c = ciphertext.charAt(i);
             char newChar = c;

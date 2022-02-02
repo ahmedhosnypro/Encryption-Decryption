@@ -179,9 +179,17 @@ files:
 
     }
   learner_created: false
+- name: src/encryptdecrypt/output.txt
+  visible: true
+  text: 111122223333
+  learner_created: true
+- name: output.txt
+  visible: true
+  text: 111122223333
+  learner_created: true
 - name: src/encryptdecrypt/Encrypt.java
   visible: true
-  text: |+
+  text: |-
     package encryptdecrypt;
 
     import java.util.Scanner;
@@ -250,17 +258,16 @@ files:
             return sb.toString();
         }
     }
-
   learner_created: true
 - name: src/encryptdecrypt/Decrypt.java
   visible: true
-  text: |
+  text: |-
     package encryptdecrypt;
 
     public class Decrypt {
-        static String allKeyDecrypt(String cyphertext, int key){
+        static String allKeyDecrypt(String cyphertext, int key) {
             StringBuilder sb = new StringBuilder();
-            for (int i=0; i<cyphertext.length(); i++){
+            for (int i = 0; i < cyphertext.length(); i++) {
                 char c = cyphertext.charAt(i);
                 char newChar = (char) (c - key);
                 sb.append(newChar);
@@ -275,7 +282,7 @@ files:
   learner_created: true
 - name: src/encryptdecrypt/Operation.java
   visible: true
-  text: |
+  text: |-
     package encryptdecrypt;
 
     public enum Operation {
@@ -285,7 +292,7 @@ files:
   learner_created: true
 - name: src/encryptdecrypt/Start.java
   visible: true
-  text: |
+  text: |-
     package encryptdecrypt;
 
     import java.util.Scanner;
@@ -314,20 +321,18 @@ files:
                     default:
                         break;
                 }
-
             } catch (IllegalArgumentException e) {
                 ret = "enter a valid operation";
             }
-
             return ret;
         }
+
         //standard input
         static String start() {
             String ret = "";
             Scanner scanner = new Scanner(System.in);
 
             String opt = scanner.nextLine().trim().toUpperCase();
-
 
             try {
                 Operation operation = Operation.valueOf(opt);
@@ -349,7 +354,6 @@ files:
                     default:
                         break;
                 }
-
             } catch (IllegalArgumentException e) {
                 ret = "enter a valid operation";
             }
@@ -364,13 +368,10 @@ files:
 - name: src/encryptdecrypt/InputProcessor.java
   visible: true
   learner_created: true
-- name: output.txt
-  visible: true
-  learner_created: true
-feedback_link: https://hyperskill.org/projects/46/stages/250/implement#comment
+feedback_link: https://hyperskill.org/learn/step/5392#comment
 status: Solved
 feedback:
   message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
     Academy</a> to continue learning.
-  time: Wed, 30 Jun 2021 09:27:30 UTC
+  time: Wed, 02 Feb 2022 22:14:57 UTC
 record: -1

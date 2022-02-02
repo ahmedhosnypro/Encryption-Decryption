@@ -1,21 +1,2 @@
 content:
-- LinkedList vs. ArrayList
-- The Set interface
-- The Map interface
-- HashMap
-- Queue and Stack
-- Choosing the right collection
-- Inner classes
-- Reflection basics
-- Nested classes
-- Anonymous classes
-- Anonymous classes properties
-- Generic methods
-- Processing strings
-- Type Bounds
-- Reification
-- Switch statement
-- Encapsulating object creation
-- Factory method
-- Template method
-- Generics and Reflection
+- Fields and methods in enum

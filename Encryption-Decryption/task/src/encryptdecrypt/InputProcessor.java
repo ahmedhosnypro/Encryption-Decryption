@@ -9,7 +9,7 @@ import java.util.Scanner;
 import static encryptdecrypt.Start.start;
 
 public class InputProcessor {
-    public static void Process(String[] args){
+    public static void Process(String[] args) {
         boolean validInput = true;
         if (args.length > 0 && args.length % 2 == 0) {
             HashMap<String, String> arguments = new HashMap<>();
@@ -33,18 +33,17 @@ public class InputProcessor {
                 String inPath = arguments.getOrDefault("-in", null);
                 String outPath = arguments.getOrDefault("-out", null);
 
-                if (dataSources == 2){
+                if (dataSources == 2) {
                     System.out.println(start(algorithm, opt, key, input));
-                }
-                else{
+                } else {
                     if (inPath == null || outPath == null)
                         System.out.println(start(algorithm, opt, key, input));
-                    else{
+                    else {
                         File inFile = new File(inPath);
                         File outFile = new File(outPath);
-                        try(Scanner in = new Scanner(inFile);
-                            FileWriter out = new FileWriter(outFile)){
-                            while(in.hasNext()){
+                        try (Scanner in = new Scanner(inFile);
+                             FileWriter out = new FileWriter(outFile)) {
+                            while (in.hasNext()) {
                                 input = in.nextLine();
                             }
                             String output = start(algorithm, opt, key, input);

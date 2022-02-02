@@ -119,7 +119,7 @@ files:
   learner_created: false
 - name: src/encryptdecrypt/Encrypt.java
   visible: true
-  text: |+
+  text: |-
     package encryptdecrypt;
 
     import java.util.Scanner;
@@ -131,49 +131,45 @@ files:
             scanner = new Scanner(System.in);
         }
 
-        static void simpleEncrypt(){
+        static void simpleEncrypt() {
             String s = "we found a treasure!";
             StringBuilder sb = new StringBuilder();
-            for (int i=0; i<s.length(); i++){
+            for (int i = 0; i < s.length(); i++) {
                 char c = s.charAt(i);
                 char newChar = c;
-                if (c>=65 && c <=90){
+                if (c >= 65 && c <= 90) {
                     int n = 90 - c;
-                    if (n<13){
-                        newChar =(char) (90 + n);
-                    }
-                    else newChar = (char) (65 - (25-n));
-                }
-                else if (c>=97 && c<=122){
+                    if (n < 13) {
+                        newChar = (char) (90 + n);
+                    } else newChar = (char) (65 - (25 - n));
+                } else if (c >= 97 && c <= 122) {
                     int n = 122 - c;
-                    if (n<13){
-                        newChar =(char) (97 + n);
-                    }
-                    else newChar = (char) (122 - (25-n));
+                    if (n < 13) {
+                        newChar = (char) (97 + n);
+                    } else newChar = (char) (122 - (25 - n));
                 }
                 sb.append(newChar);
             }
             System.out.println(sb);
         }
 
-        static void letterKeyEncrypt(String message, int key){
+        static void letterKeyEncrypt(String message, int key) {
             StringBuilder sb = new StringBuilder();
-            for (int i=0; i<message.length(); i++){
+            for (int i = 0; i < message.length(); i++) {
                 char c = message.charAt(i);
                 char newChar = c;
-                if (c>=65 && c <=90){
-                    if (c + key < 90){
+                if (c >= 65 && c <= 90) {
+                    if (c + key < 90) {
                         newChar = (char) (c + key);
-                    }else{
+                    } else {
                         key -= (90 - c);
                         newChar = (char) (64 + key);
                     }
-                }
-                else if (c>=97 && c<=122){
-                    if (c + key < 122){
+                } else if (c >= 97 && c <= 122) {
+                    if (c + key < 122) {
                         newChar = (char) (c + key);
-                    }else{
-                        int  tmpKey = key - (122 - c);
+                    } else {
+                        int tmpKey = key - (122 - c);
                         newChar = (char) (96 + tmpKey);
                     }
                 }
@@ -182,28 +178,26 @@ files:
             System.out.println(sb);
         }
 
-        static void allKeyEncrypt(String message , int key){
+        static void allKeyEncrypt(String message, int key) {
             StringBuilder sb = new StringBuilder();
-            for (int i=0; i<message.length(); i++){
+            for (int i = 0; i < message.length(); i++) {
                 char c = message.charAt(i);
                 char newChar = (char) (c + key);
                 sb.append(newChar);
             }
             System.out.println(sb);
         }
-
     }
-
   learner_created: true
 - name: src/encryptdecrypt/Decrypt.java
   visible: true
-  text: |
+  text: |-
     package encryptdecrypt;
 
     public class Decrypt {
-        static void allKeyDecrypt(String cyphertext, int key){
+        static void allKeyDecrypt(String cyphertext, int key) {
             StringBuilder sb = new StringBuilder();
-            for (int i=0; i<cyphertext.length(); i++){
+            for (int i = 0; i < cyphertext.length(); i++) {
                 char c = cyphertext.charAt(i);
                 char newChar = (char) (c - key);
                 sb.append(newChar);
@@ -214,7 +208,7 @@ files:
   learner_created: true
 - name: src/encryptdecrypt/Operation.java
   visible: true
-  text: |
+  text: |-
     package encryptdecrypt;
 
     public enum Operation {
@@ -224,7 +218,7 @@ files:
   learner_created: true
 - name: src/encryptdecrypt/Start.java
   visible: true
-  text: |
+  text: |-
     package encryptdecrypt;
 
     import java.util.Scanner;
@@ -258,6 +252,7 @@ files:
             }
 
         }
+
         //standard input
         static void start() {
 
@@ -299,12 +294,15 @@ files:
 - name: src/encryptdecrypt/out.txt
   visible: true
   learner_created: true
+- name: src/encryptdecrypt/output.txt
+  visible: true
+  learner_created: true
 - name: output.txt
   visible: true
   learner_created: true
-feedback_link: https://hyperskill.org/projects/46/stages/249/implement#comment
+feedback_link: https://hyperskill.org/learn/step/5391#comment
 status: Solved
 feedback:
   message: Congratulations!
-  time: Sun, 27 Jun 2021 12:10:04 UTC
+  time: Wed, 02 Feb 2022 12:17:07 UTC
 record: 5

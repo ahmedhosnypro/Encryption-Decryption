@@ -3,9 +3,9 @@ package encryptdecrypt;
 import java.util.Scanner;
 
 class Encryptor {
-    static String encrypt(String algorithm,String message, int key){
+    static String encrypt(String algorithm, String message, int key) {
         Encrypt encryptor = null;
-        switch(algorithm){
+        switch (algorithm) {
             case "shift":
                 encryptor = new Shift(key, message);
                 break;
@@ -19,9 +19,9 @@ class Encryptor {
 }
 
 class Decrypts {
-    static String decrypt(String algorithm,String ciphertext, int key){
+    static String decrypt(String algorithm, String ciphertext, int key) {
         Decrypt decrypts = null;
-        switch(algorithm){
+        switch (algorithm) {
             case "shift":
                 decrypts = new DeShift(key, ciphertext);
                 break;
@@ -33,7 +33,6 @@ class Decrypts {
         return decrypts.decrypt();
     }
 }
-
 
 
 public class Start {
@@ -64,6 +63,7 @@ public class Start {
 
         return ret;
     }
+
     //standard input
     static String start() {
         String ret = "";
